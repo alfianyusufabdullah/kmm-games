@@ -1,42 +1,52 @@
 package alfianyusufabdullah.exp.games.gamesAndroid
 
-import alfianyusufabdullah.exp.games.shared.GamesSDK
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Rect
 import android.os.Bundle
-import alfianyusufabdullah.exp.games.shared.Greeting
-import android.util.Log
-import android.widget.TextView
+import android.view.View
 import android.widget.Toast
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.cancel
-import kotlinx.coroutines.launch
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
 
-    private val gamesSDK = GamesSDK()
-    private val mainScope = MainScope()
+    lateinit var mainViewModel: MainViewModel
+
+    private val rvGames: RecyclerView by lazy { findViewById(R.id.rvGames) }
+    private val rvGamesAdapter: MainAdapter by lazy { MainAdapter(mutableListOf()) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val tv: TextView = findViewById(R.id.text_view)
+        rvGames.hasFixedSize()
+        rvGames.layoutManager = LinearLayoutManager(this)
+        rvGames.adapter = rvGamesAdapter
+        rvGames.addItemDecoration(object : RecyclerView.ItemDecoration() {
+            override fun getItemOffsets(
+                outRect: Rect,
+                view: View,
+                parent: RecyclerView,
+                state: RecyclerView.State
+            ) {
+                super.getItemOffsets(outRect, view, parent, state)
+                with(outRect) {
+                    if (parent.getChildAdapterPosition(view) == 0) {
+                        top = 15
+                    }
+                    bottom = 15
+                }
+            }
+        })
 
-        mainScope.launch {
-            kotlin.runCatching {
-                gamesSDK.getAllGames()
-            }.onSuccess {
-                tv.text = it.games.size.toString()
-            }.onFailure {
-                Log.d("ERRRRROR" ,it.message)
-                Toast.makeText(this@MainActivity, "${it.message}", Toast.LENGTH_SHORT).show()
+        mainViewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        mainViewModel.games.observe(this) {
+            if (it.isEmpty()) {
+                Toast.makeText(this@MainActivity, "Something happen!", Toast.LENGTH_SHORT).show()
+            } else {
+                rvGamesAdapter.submitList(it)
             }
         }
-
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        mainScope.cancel()
     }
 }
