@@ -9,7 +9,7 @@ data class Game(
     @SerialName("name")
     val name: String,
     @SerialName("rating")
-    val rating: Long,
+    val rating: Double,
     @SerialName("background_image")
     val background: String,
     @SerialName("released")
