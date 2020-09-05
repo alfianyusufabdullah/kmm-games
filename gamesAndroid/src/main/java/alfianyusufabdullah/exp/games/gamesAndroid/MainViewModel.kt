@@ -1,7 +1,7 @@
 package alfianyusufabdullah.exp.games.gamesAndroid
 
 import alfianyusufabdullah.exp.games.shared.GamesSDK
-import alfianyusufabdullah.exp.games.shared.entity.Game
+import alfianyusufabdullah.exp.games.shared.Game
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

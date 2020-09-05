@@ -1,6 +1,6 @@
 package alfianyusufabdullah.exp.games.gamesAndroid
 
-import alfianyusufabdullah.exp.games.shared.entity.Game
+import alfianyusufabdullah.exp.games.shared.Game
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
