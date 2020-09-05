@@ -15,8 +15,6 @@
 		7555FF8B242A565B00829871 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7555FF89242A565B00829871 /* LaunchScreen.storyboard */; };
 		7555FF96242A565B00829871 /* gamesioSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF95242A565B00829871 /* gamesioSTests.swift */; };
 		7555FFA1242A565B00829871 /* gamesioSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FFA0242A565B00829871 /* gamesioSUITests.swift */; };
-		A83883C425024A9E00778408 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83883C325024A9E00778408 /* Nuke.framework */; };
-		A83883C525024A9E00778408 /* Nuke.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A83883C325024A9E00778408 /* Nuke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A83883C82503882200778408 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = A83883C72503882200778408 /* URLImage */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +42,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A83883C525024A9E00778408 /* Nuke.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,7 +73,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A83883C82503882200778408 /* URLImage in Frameworks */,
-				A83883C425024A9E00778408 /* Nuke.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
