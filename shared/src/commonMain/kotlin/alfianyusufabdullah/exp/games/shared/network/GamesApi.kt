@@ -1,6 +1,6 @@
 package alfianyusufabdullah.exp.games.shared.network
 
-import alfianyusufabdullah.exp.games.shared.entity.GameResponse
+import alfianyusufabdullah.exp.games.shared.GameResponse
 import io.ktor.client.*
 import io.ktor.client.features.json.*
 import io.ktor.client.features.json.serializer.*

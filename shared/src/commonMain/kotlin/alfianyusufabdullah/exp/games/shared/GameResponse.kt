@@ -1,4 +1,4 @@
-package alfianyusufabdullah.exp.games.shared.entity
+package alfianyusufabdullah.exp.games.shared
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

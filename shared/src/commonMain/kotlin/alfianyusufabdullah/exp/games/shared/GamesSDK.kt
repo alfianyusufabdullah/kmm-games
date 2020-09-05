@@ -1,6 +1,5 @@
 package alfianyusufabdullah.exp.games.shared
 
-import alfianyusufabdullah.exp.games.shared.entity.GameResponse
 import alfianyusufabdullah.exp.games.shared.network.GamesApi
 
 class GamesSDK {
